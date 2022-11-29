@@ -1,0 +1,30 @@
+{
+  "name": "kafka-init",
+  "description": "Basic kafka application",
+  "version": "1.1.0",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "nodemon server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/teohen/kafka-init.git"
+  },
+  "keywords": [
+    "kafka",
+    "basic",
+    "init"
+  ],
+  "author": "@teohen",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/teohen/kafka-init/issues"
+  },
+  "homepage": "https://github.com/teohen/kafka-init#readme",
+  "dependencies": {
+    "express": "^4.18.2",
+    "kafkajs": "^2.2.3",
+    "nodemon": "^2.0.20"
+  }
+}
