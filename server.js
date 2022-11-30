@@ -1,3 +1,4 @@
+require('dotenv').config()
 const express = require('express')
 
 const { kafkaManager } = require('./src/commons')
@@ -7,7 +8,7 @@ const { messagesRoutes } = require('./src/messages')
 const app = express()
 app.use(express.json())
 
-const PORT = 3000
+const PORT = process.env.PORT
 
 const kafkaAdmin = kafkaManager.getClientAdmin()
 const kafkaProducer = kafkaManager.getProducer()

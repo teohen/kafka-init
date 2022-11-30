@@ -1,8 +1,8 @@
 const { Kafka } = require('kafkajs')
 
 const kafka = new Kafka({
-  clientId: 'my-app',
-  brokers: ['localhost:9092', 'localhost:9092']
+  clientId: process.env.CLIENT_ID,
+  brokers: [process.env.BROKERS]
 })
 
 const admin = kafka.admin()
