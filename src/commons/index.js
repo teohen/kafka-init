@@ -1,4 +1,4 @@
-const kafkaManager = require('./kafkaManager');
+const kafkaManager = require('./kafkaManager')
 
 module.exports = {
   kafkaManager

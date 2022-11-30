@@ -5,10 +5,11 @@ const kafka = new Kafka({
   brokers: ['localhost:9092', 'localhost:9092']
 })
 
-const kafkaAdmin = kafka.admin()
+const admin = kafka.admin()
+const producer = kafka.producer()
 
-const createProducer = () => {
-  return kafka.producer();
+const getProducer = () => {
+  return producer
 }
 
 const createConsumer = (groupId) => {
@@ -16,11 +17,13 @@ const createConsumer = (groupId) => {
 }
 
 const getClientAdmin = () => {
-  return kafkaAdmin
+  return admin
 }
 
+
+
 module.exports = {
-  createProducer,
+  getProducer,
   createConsumer,
   getClientAdmin
 }
