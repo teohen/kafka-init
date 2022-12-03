@@ -15,6 +15,7 @@ const routes = (app) => {
           "key": message.key || randomKey, "value": JSON.stringify(message.value)
         }]
       })
+      console.log(`message sent to topic: ${body.topic} / value: ${message.value}`)
       res.sendStatus(201)
     } catch (err) {
       console.log('erro', err)

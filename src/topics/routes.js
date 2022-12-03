@@ -6,8 +6,6 @@ const routes = (app) => {
   app.get('/topics', async (req, res) => {
     try {
       const topics = await kafkaAdmin.listTopics()
-      topics.pop()
-
       res.status(200).send(topics)
     } catch (err) {
       console.log('erro', err)
@@ -25,7 +23,7 @@ const routes = (app) => {
           configEntries: [{ name: 'cleanup.policy', value: 'compact' }]
         }]
       })
-
+      
       res.sendStatus(201)
     } catch (err) {
       console.log('erro', err)
