@@ -20,7 +20,7 @@ const routes = (app) => {
         topics: [{
           topic: body.topicName,
           numPartitions: body.numPartitions,
-          configEntries: [{ name: 'cleanup.policy', value: 'compact' }]
+          configEntries: body.configEntries
         }]
       })
       

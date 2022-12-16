@@ -12,7 +12,9 @@ const routes = (app) => {
       await producer.send({
         topic: body.topic,
         messages: [{
-          "key": message.key || randomKey, "value": JSON.stringify(message.value)
+          "key": message.key || randomKey,
+          "value": JSON.stringify(message.value),
+          "headers": message.headers
         }]
       })
       console.log(`message sent to topic: ${body.topic} / value: ${message.value}`)
