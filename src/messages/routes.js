@@ -6,18 +6,23 @@ const producer = kafkaManager.getProducer()
 const routes = (app) => {
   app.post('/messages', async (req, res) => {
     const randomKey = crypto.randomUUID()
+
     try {
-      const { body } = req
-      const { message } = body
-      await producer.send({
-        topic: body.topic,
-        messages: [{
-          "key": message.key || randomKey,
-          "value": JSON.stringify(message.value),
-          "headers": message.headers
-        }]
-      })
-      console.log(`message sent to topic: ${body.topic} / value: ${message.value}`)
+      const { body: schedules } = req
+
+      schedules.forEach(async (schedule) => {
+        const { message } = schedule
+        await producer.send({
+          topic: schedule.topic,
+          messages: [{
+            "key": message.key || randomKey,
+            "value": JSON.stringify(message.value),
+            "headers": message.headers
+          }]
+        })
+        console.log(`message sent to topic: ${schedule.topic} / value: ${message.value}`)
+      });
+
       res.sendStatus(201)
     } catch (err) {
       console.log('erro', err)
